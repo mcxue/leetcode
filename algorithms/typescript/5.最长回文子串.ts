@@ -45,12 +45,6 @@
  * 
  */
 
-/**
- * 简单版，从中间向左、右扩散检查
- * 更好的版本的版本需要使用动态规划，简单版会有很多重复计算
- * @param s 
- * @returns 
- */
 // @lc code=start
 function longestPalindrome(s: string): string {
   if (!s.length) return '';
@@ -74,3 +68,6 @@ function longestPalindrome(s: string): string {
 };
 // @lc code=end
 
+/**
+ * 中心扩散法，时间复杂度为 O(n^2)
+ */
