@@ -98,5 +98,3 @@ function reverseWords(s: string): string {
   return ans;
 }
 // @lc code=end
-
-reverseWords('  the sky is blue  ');
