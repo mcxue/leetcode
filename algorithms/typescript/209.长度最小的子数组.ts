@@ -64,16 +64,16 @@
 
 // @lc code=start
 function minSubArrayLen(target: number, nums: number[]): number {
-  let [slow, fast] = [0, 0];
+  let [left, right] = [0, 0];
   let sum = 0;
   let ans = 0;
-  while (fast < nums.length) {
-    sum += nums[fast];
-    fast += 1;
+  while (right < nums.length) {
+    sum += nums[right];
+    right += 1;
     while (sum >= target) {
-      ans = ans !== 0 ? Math.min(ans, fast - slow) : fast - slow;
-      sum -= nums[slow];
-      slow += 1;
+      ans = ans === 0 ? right - left : Math.min(ans, right - left);
+      sum -= nums[left];
+      left += 1;
     }
   }
   return ans;
