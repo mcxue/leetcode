@@ -72,11 +72,11 @@ function findMin(nums: number[]): number {
   let left = 0;
   let right = nums.length - 1;
   while (left < right) {
-    const pivot = Math.floor((left + right) / 2);
-    if (nums[pivot] < nums[right]) {
-      right = pivot;
+    const mid = Math.floor((left + right) / 2);
+    if (nums[mid] < nums[right]) {
+      right = mid;
     } else {
-      left = pivot + 1;
+      left = mid + 1;
     }
   }
   return nums[left];

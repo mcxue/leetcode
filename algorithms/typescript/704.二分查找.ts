@@ -46,15 +46,15 @@
 // @lc code=start
 function search(nums: number[], target: number): number {
   let left = 0;
-  let right = nums.length;
+  let right = nums.length - 1;
   while (left <= right) {
-    const middleIndex = Math.floor((left + right) / 2);
-    if (nums[middleIndex] === target) {
-      return middleIndex;
-    } else if (nums[middleIndex] < target) {
-      left = middleIndex + 1;
+    const mid = Math.floor((left + right) / 2);
+    if (nums[mid] === target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      left = mid + 1;
     } else {
-      right = middleIndex - 1;
+      right = mid - 1;
     }
   }
   return -1;
