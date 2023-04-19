@@ -72,20 +72,25 @@ interface TreeNode {
 
 function levelOrder(root: TreeNode | null): number[][] {
   const ans: number[][] = [];
-  const queue: TreeNode[][] = [];
+  const queue: TreeNode[] = [];
   if (!root) return [];
-  queue.push([root]);
-  while (queue[0]) {
-    const list = queue.shift() as TreeNode[];
+  queue.push(root);
+  while (queue.length) {
+    const list: TreeNode[] = [];
+    while (queue.length) {
+      list.push(queue.shift() as TreeNode);
+    }
     let numItem: number[] = [];
-    const temp: TreeNode[] = [];
+    const tempList: TreeNode[] = [];
     list.forEach((node) => {
       numItem.push(node.val);
-      if (node.left) temp.push(node.left);
-      if (node.right) temp.push(node.right);
+      if (node.left) tempList.push(node.left);
+      if (node.right) tempList.push(node.right);
     });
     ans.push(numItem);
-    if (temp.length) queue.push(temp);
+    while (tempList.length) {
+      queue.push(tempList.shift() as TreeNode);
+    }
   }
   return ans;
 }

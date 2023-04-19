@@ -94,8 +94,10 @@ interface Node {
 }
 
 function connect(root: Node | null): Node | null {
-  // 前序遍历树
+  if (!root) return null;
+  root.next = null;
   recursive(root);
+  // 前序遍历树
   function recursive(node: Node | null) {
     if (node === null) return;
     if (node.left) {
