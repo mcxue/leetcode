@@ -53,6 +53,11 @@
  *
  */
 
+interface Node {
+  val: number;
+  children: Node[];
+}
+
 // @lc code=start
 /**
  * Definition for node.
@@ -65,11 +70,6 @@
  *     }
  * }
  */
-
-interface Node {
-  val: number;
-  children: Node[];
-}
 
 function preorder(root: Node | null): number[] {
   const ans: number[] = [];

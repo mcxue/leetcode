@@ -65,6 +65,13 @@
  *
  */
 
+interface Node {
+  val: number;
+  left: Node | null;
+  right: Node | null;
+  next: Node | null;
+}
+
 // @lc code=start
 /**
  * Definition for Node.
@@ -81,13 +88,6 @@
  *     }
  * }
  */
-
-interface Node {
-  val: number;
-  left: Node | null;
-  right: Node | null;
-  next: Node | null;
-}
 
 function connect(root: Node | null): Node | null {
   if (!root) return null;

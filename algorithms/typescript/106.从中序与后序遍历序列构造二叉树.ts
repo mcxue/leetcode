@@ -48,6 +48,17 @@
  *
  */
 
+class TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.left = left === undefined ? null : left;
+    this.right = right === undefined ? null : right;
+  }
+}
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -63,17 +74,6 @@
  * }
  */
 
-// class TreeNode {
-//   val: number;
-//   left: TreeNode | null;
-//   right: TreeNode | null;
-//   constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
-//     this.val = val === undefined ? 0 : val;
-//     this.left = left === undefined ? null : left;
-//     this.right = right === undefined ? null : right;
-//   }
-// }
-
 function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
   const map = new Map<number, number>();
   for (let i = 0; i < inorder.length; i++) {
@@ -88,8 +88,8 @@ function buildTree(inorder: number[], postorder: number[]): TreeNode | null {
     const value = postorder[n];
     const index = map.get(value) as number;
     const node = new TreeNode(value);
-    node.left = cursive(j, index - 1, m, m + index - 1 - j);
-    node.right = cursive(index + 1, k, m + index - j, n - 1);
+    node.left = recursive(j, index - 1, m, m + index - 1 - j);
+    node.right = recursive(index + 1, k, m + index - j, n - 1);
     return node;
   }
 }

@@ -49,6 +49,12 @@
  *
  */
 
+interface TreeNode {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -63,12 +69,6 @@
  *     }
  * }
  */
-
-interface TreeNode {
-  val: number;
-  left: TreeNode | null;
-  right: TreeNode | null;
-}
 
 function levelOrder(root: TreeNode | null): number[][] {
   const ans: number[][] = [];
