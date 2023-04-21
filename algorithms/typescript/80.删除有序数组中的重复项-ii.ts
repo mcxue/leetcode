@@ -73,14 +73,12 @@
 // @lc code=start
 function removeDuplicates(nums: number[]): number {
   if (nums.length <= 2) return nums.length;
-  let [left, right] = [2, 2];
-  while (right < nums.length) {
-    if (nums[right] !== nums[left - 2]) {
-      nums[left] = nums[right];
-      left += 1;
+  let ans = 2;
+  for (let i = 2; i < nums.length; i++) {
+    if (nums[i] !== nums[ans - 2]) {
+      nums[ans++] = nums[i];
     }
-    right += 1;
   }
-  return left;
+  return ans;
 }
 // @lc code=end

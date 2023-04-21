@@ -61,12 +61,13 @@
 // @lc code=start
 function maxProfit(prices: number[]): number {
   let ans = 0;
-  for (let i = 0; i < prices.length - 1; i++) {
-    const diff = prices[i + 1] - prices[i];
-    if (diff > 0) {
-      ans += diff;
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] > prices[i - 1]) {
+      ans += prices[i] - prices[i - 1];
     }
   }
   return ans;
 }
 // @lc code=end
+
+maxProfit([7, 1, 5, 3, 6, 4]);
